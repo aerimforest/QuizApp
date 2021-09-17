@@ -51,31 +51,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkAns() {
         binding.btnMainCheck.setOnClickListener {
-            binding.btnMainCheck.text = "" // 정답 확인 글자 제거
 
             // 정답 or 오답 보기를 선택한 경우
             if (binding.btnMainCorrect.isSelected || binding.btnMainWrong.isSelected) {
+                binding.btnMainCheck.text = "" // 정답 확인 글자 제거
+
                 // 정답을 선택한 경우
                 if (binding.btnMainCorrect.isSelected) {
                     binding.tvMainQuiz.text = "정답이에요!"
                     binding.imgMain.setImageResource(R.drawable.correct)
-                    binding.imgMain.layoutParams.width = 400
 
-                    binding.btnMainWrong.setBackgroundResource(R.drawable.background_btn_gray)
                     binding.btnMainCorrect.setBackgroundResource(R.drawable.background_btn_correct)
-                    binding.btnMainCorrect.setTextColor(Color.WHITE)
-                    binding.btnMainWrong.setTextColor(ContextCompat.getColor(this, R.color.gray_soft))
-
                 } else { // 오답을 선택한 경우
                     binding.tvMainQuiz.text = "정답이...아니에요"
                     binding.imgMain.setImageResource(R.drawable.wrong)
-                    binding.imgMain.layoutParams.width = 400
 
-                    binding.btnMainWrong.setBackgroundResource(R.drawable.background_btn_gray)
                     binding.btnMainCorrect.setBackgroundResource(R.drawable.background_btn_wrong)
-                    binding.btnMainCorrect.setTextColor(Color.WHITE)
-                    binding.btnMainWrong.setTextColor(ContextCompat.getColor(this, R.color.gray_soft))
                 }
+
+                binding.imgMain.layoutParams.width = 400
+                binding.btnMainWrong.setBackgroundResource(R.drawable.background_btn_gray)
+                binding.btnMainCorrect.setTextColor(Color.WHITE)
+                binding.btnMainWrong.setTextColor(ContextCompat.getColor(this, R.color.gray_soft))
             }
 
             // 아무것도 선택하지 않은 경우 -> 정답 확인 버튼 비활성화
